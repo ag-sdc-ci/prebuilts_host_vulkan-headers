@@ -1,0 +1,45 @@
+package {
+    default_applicable_licenses: ["external_vulkan-headers_license"],
+}
+
+license {
+    name: "external_vulkan-headers_license",
+    visibility: [":__subpackages__"],
+    license_kinds: [
+        "SPDX-license-identifier-Apache-2.0",
+        "SPDX-license-identifier-BSD",
+    ],
+    license_text: [
+        "NOTICE",
+    ],
+}
+
+ndk_headers {
+    name: "ndk_vulkan_headers",
+    from: "include",
+    to: "",
+    srcs: [
+        "include/**/*.h",
+    ],
+    license: "NOTICE",
+}
+
+cc_library_headers {
+    name: "vulkan_headers",
+    export_include_dirs: ["include"],
+    host_supported: true,
+    vendor_available: true,
+    sdk_version: "24",
+    apex_available: [
+        "//apex_available:platform",
+        "com.android.virt",
+    ],
+    llndk: {
+        llndk_headers: true,
+    },
+}
+
+filegroup {
+    name: "vulkan_headers_registry",
+    srcs: ["registry/vk.xml"],
+}

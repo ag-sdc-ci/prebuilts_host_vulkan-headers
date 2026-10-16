@@ -1,0 +1,5 @@
+shadow prebuilt repo: vulkan-headers (host)
+  arch package: vulkan-headers v1:1.4.363.0-1, Arch Linux extra repo
+  api-level: universal (C/C++ headers & API registry)
+  layout: vulkan-headers-*.pkg.tar.zst at root; extracted include/ headers & registry/vk.xml; Android.bp providing vulkan_headers, ndk_vulkan_headers, vulkan_headers_registry
+  date: 2026-10-16
